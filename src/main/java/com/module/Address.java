@@ -1,15 +1,21 @@
 package com.module;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component	
 public class Address {
 	
+	@Value("${village}")
 	String village;
+	
+	@Value("${zipCode}")
 	int zipCode;
 	
-	@Override
-	public String toString() {
-		return "Address [village=" + village + ", zipCode=" + zipCode + "]";
+	public Address(){
+		
 	}
-
+	
 	public int getZipCode() {
 		return zipCode;
 	}
@@ -24,15 +30,6 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	public Address(){
-		
-	}
-
-	public Address(String village) {
-		super();
-		this.village = village;
-	}
-
 	public String getVillage() {
 		return village;
 	}
@@ -40,5 +37,11 @@ public class Address {
 	public void setVillage(String village) {
 		this.village = village;
 	}
+	
+	@Override
+	public String toString() {
+		return "Address [village=" + village + ", zipCode=" + zipCode + "]";
+	}
+
 
 }
